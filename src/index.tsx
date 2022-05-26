@@ -311,19 +311,19 @@ export const DonutChart = ({
                 strokeWidth={animatedStrokeWidths[i]}
               />
             );
-            })}
-          </Svg>
-              <Animated.View style={_getLabelWrapperStyle()}>
-                <Text style={_getLabelValueStyle(displayValue?.color)}>
-                {Number(displayValue?.value || 0).toFixed(0)}€
-                </Text>
-                <Text style={_getLabelTitleStyle(displayValue?.color)}>
-                  {displayValue?.name}
-                </Text>
-              </Animated.View>
-            </View>
-        </Fragment>
-    );
+          })}
+        </Svg>
+        <Animated.View style={_getLabelWrapperStyle()}>
+          <Text style={_getLabelValueStyle(displayValue?.color)}>
+            {displayValue && displayValue.value && Number(displayValue.value).toFixed(0) || 0}€
+          </Text>
+          <Text style={_getLabelTitleStyle(displayValue?.color)}>
+            {displayValue?.name}
+          </Text>
+        </Animated.View>
+      </View>
+    </Fragment>
+  );
 };
 const styles = StyleSheet.create({
   defaultContainer: {
